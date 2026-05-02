@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 settings = get_settings()
 
 KNOWLEDGE_BASE_PATH = os.path.join(
-    os.path.dirname(__file__), "../../data/nutrition_knowledge.txt"
+    os.path.dirname(__file__), "../data/nutrition_knowledge.txt"
 )
 
 def get_embeddings():

@@ -27,7 +27,7 @@ def init_db():
     session = SessionLocal()
     count = session.execute(text("SELECT COUNT(*) FROM foods")).scalar()
     if count == 0:
-        csv_path = os.path.join(os.path.dirname(__file__), "../../data/nutrition.csv")
+        csv_path = os.path.join(os.path.dirname(__file__), "../data/nutrition.csv")
         if os.path.exists(csv_path):
             df = pd.read_csv(csv_path)
             df.fillna(0, inplace=True)

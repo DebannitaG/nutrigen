@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "../models/rf_model.pkl")
 SCALER_PATH = os.path.join(os.path.dirname(__file__), "../models/scaler.pkl")
 ENCODER_PATH = os.path.join(os.path.dirname(__file__), "../models/encoders.pkl")
-DATA_PATH = os.path.join(os.path.dirname(__file__), "../../data/ml_training.csv")
+DATA_PATH = os.path.join(os.path.dirname(__file__), "../data/ml_training.csv")
 
 ACTIVITY_MAP = {
     "sedentary": 0, "lightly_active": 1,
