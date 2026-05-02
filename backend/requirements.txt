@@ -9,8 +9,8 @@ scikit-learn
 langchain
 langchain-community
 langchain-groq
-langchain-huggingface
-sentence-transformers
+langchain-core
+langchain-text-splitters
 faiss-cpu
 python-dotenv
 pydantic
@@ -18,7 +18,5 @@ pydantic-settings
 python-multipart
 aiofiles
 httpx
-redis
 joblib
-langchain-text-splitters
-langchain-core
+openai
