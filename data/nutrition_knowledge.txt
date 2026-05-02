@@ -1,0 +1,75 @@
+Nutrition and Diet Knowledge Base for HealthGuard AI
+
+MACRONUTRIENTS
+
+Proteins are essential macronutrients that build and repair tissues, make enzymes and hormones, and support immune function. High-protein foods include chicken breast (31g per 100g), eggs (13g per 100g), paneer (18g per 100g), lentils (9g per 100g), and fish like ilish/hilsa (24g per 100g). For weight loss, aim for 1.2-1.6g per kg of body weight. For muscle gain, aim for 1.6-2.2g per kg.
+
+Carbohydrates are the body's primary energy source. Complex carbohydrates found in brown rice, oats, quinoa, and whole wheat roti provide sustained energy and fiber. Simple carbohydrates found in white rice, sugar, and processed foods cause rapid blood sugar spikes. Indians typically eat 60-70% of calories from carbs, which can be high for weight loss goals.
+
+Fats are essential for hormone production, vitamin absorption, and brain function. Healthy fats from nuts, avocado, olive oil, and fatty fish like salmon and hilsa are beneficial. Avoid trans fats in processed foods. Aim for fats to comprise 25-35% of total calories.
+
+CALORIE TARGETS
+
+Basal Metabolic Rate (BMR) is the number of calories your body needs at rest. Calculated using Mifflin-St Jeor equation: For men: 10W + 6.25H - 5A + 5. For women: 10W + 6.25H - 5A - 161. Where W=weight in kg, H=height in cm, A=age in years.
+
+Total Daily Energy Expenditure (TDEE) = BMR x Activity Multiplier. Sedentary (desk job): 1.2. Lightly active (1-3 days/week exercise): 1.375. Moderately active (3-5 days/week): 1.55. Very active (6-7 days/week): 1.725. Extra active (athlete): 1.9.
+
+For weight loss: eat 500 calories below TDEE per day to lose approximately 0.5kg per week. For weight gain: eat 500 calories above TDEE to gain approximately 0.5kg per week. For maintenance: eat at TDEE.
+
+BMI CATEGORIES
+
+BMI (Body Mass Index) = weight(kg) / height(m)^2. Underweight: BMI below 18.5. Normal weight: BMI 18.5 to 24.9. Overweight: BMI 25 to 29.9. Obese: BMI 30 and above. BMI is a screening tool, not a diagnostic measure.
+
+INDIAN AND BENGALI DIET
+
+Indian diet is rich in spices like turmeric (anti-inflammatory), cumin, coriander which have health benefits. Dal (lentils) is an excellent protein source and is a staple in most Indian homes providing 7-9g protein per 100g cooked. Roti made from whole wheat provides complex carbohydrates and fiber. Curd (yogurt) provides probiotics, calcium, and protein.
+
+Bengali cuisine features fish as a primary protein source. Ilish (hilsa fish) is rich in omega-3 fatty acids and is one of the most nutritious fish. Posto (poppy seeds) used in Aloo Posto provides calcium and healthy fats. Mustard oil commonly used in Bengali cooking contains omega-3 and omega-6 fatty acids. Shorshe (mustard) preparations have antimicrobial and anti-inflammatory properties.
+
+Traditional Bengali meals follow a balanced pattern: rice (carbs) + dal (protein) + fish or vegetables + curd. This pattern naturally provides macronutrient balance.
+
+DIABETES MANAGEMENT THROUGH DIET
+
+People with diabetes should focus on low glycemic index (GI) foods. Low GI foods (GI below 55): lentils, beans, oats, most vegetables, nuts. Medium GI foods (GI 56-69): brown rice, whole wheat bread, banana. High GI foods (GI 70+): white rice, white bread, watermelon, ripe mango.
+
+Portion control is critical. Eat smaller meals more frequently (5-6 times per day). Avoid sugary drinks and sweets including mishti doi, sandesh, and other Bengali sweets. Choose brown rice over white rice. Increase fiber intake through vegetables and whole grains.
+
+HYPERTENSION AND DIET
+
+The DASH diet (Dietary Approaches to Stop Hypertension) is recommended. Focus on fruits, vegetables, whole grains, lean protein. Reduce sodium intake to below 2300mg per day. Avoid pickles (achar), papad, processed foods, and canned foods which are high in sodium. Increase potassium-rich foods: banana, sweet potato, spinach, tomato. Limit alcohol consumption.
+
+WEIGHT LOSS STRATEGIES
+
+Create a calorie deficit of 500-1000 calories per day for sustainable weight loss of 0.5-1kg per week. Increase protein intake to preserve muscle mass during weight loss. Eat high-fiber foods to stay full longer: vegetables, legumes, oats. Avoid liquid calories: sodas, fruit juices, alcohol. Meal timing: eat breakfast within 2 hours of waking. Do not skip meals as it leads to overeating later.
+
+WEIGHT GAIN FOR UNDERWEIGHT INDIVIDUALS
+
+Eat calorie-dense foods: nuts, seeds, nut butters, avocado, whole milk, paneer. Increase meal frequency to 5-6 times per day. Add healthy fats to meals: ghee, olive oil, coconut milk. Strength training combined with high protein intake builds muscle rather than just fat. Good weight gain foods in Indian context: banana with milk, paneer dishes, egg dishes, full-fat curd, nuts.
+
+VEGETARIAN AND VEGAN PROTEIN SOURCES
+
+Complete protein sources for vegetarians: paneer, curd, milk, eggs (if lacto-ovo). Plant-based incomplete proteins that can be combined: rice + dal (complete), bread + peanut butter (complete), hummus + pita (complete). High protein vegetarian foods: paneer (18g/100g), Greek yogurt (10g/100g), lentils (9g/100g), chickpeas (8.9g/100g), tofu (8g/100g), quinoa (8g/100g), almonds (21g/100g).
+
+MEAL TIMING AND FREQUENCY
+
+Breakfast: within 2 hours of waking, should be the largest meal for energy. Include protein to reduce hunger throughout the day. Good options: oats with nuts, idli-sambar, eggs, poha.
+
+Lunch: mid-day, moderate sized meal. Should include complex carbs, protein, and vegetables. Good options: dal-chawal, roti-sabzi, fish rice (mach bhaat).
+
+Dinner: at least 2-3 hours before bedtime. Should be lighter than lunch. Avoid heavy, fried foods at night. Good options: grilled fish or chicken with vegetables, khichdi, dal with roti.
+
+Pre-workout snack (30-60 minutes before): banana, handful of nuts, yogurt. Post-workout meal (within 30-60 minutes after): protein + carbs, e.g., eggs with rice, chicken with sweet potato, paneer sandwich.
+
+HYDRATION
+
+Drink 8-10 glasses (2-2.5 liters) of water per day. Increase water intake in hot weather and during exercise. Signs of dehydration: dark yellow urine, fatigue, headache, reduced concentration. Coconut water is an excellent natural electrolyte drink, especially after exercise.
+
+MICRONUTRIENTS IMPORTANT FOR INDIANS
+
+Iron: Indian vegetarian diet can be low in iron. Sources: spinach, lentils, sesame seeds, jaggery. Combine with Vitamin C for better absorption. Avoid tea/coffee with meals as tannins reduce iron absorption.
+
+Vitamin B12: found only in animal products. Vegetarians and vegans need supplementation. Symptoms of deficiency: fatigue, weakness, memory issues.
+
+Vitamin D: deficiency is very common in India despite sun exposure. Needed for calcium absorption and immune function. Sources: sunlight exposure (15-20 minutes daily), fatty fish, fortified milk, eggs.
+
+Calcium: important for bone health. Sources: milk, curd, paneer, ragi (finger millet), til (sesame seeds), green leafy vegetables.

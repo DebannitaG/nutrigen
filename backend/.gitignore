@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.db
+*.pkl
+data/faiss_index/
+models/rf_model.pkl
+models/scaler.pkl
+models/encoders.pkl
