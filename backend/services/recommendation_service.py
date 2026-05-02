@@ -50,6 +50,9 @@ def get_bmi_category(bmi: float) -> str:
     else:
         return "Obese"
 
+def get_enum_value(val) -> str:
+    return val.value if hasattr(val, 'value') else str(val)
+
 def filter_foods_by_preference(foods: List[FoodItem], diet_pref: str, region: str) -> List[FoodItem]:
     JAIN_EXCLUDED = ["onion", "garlic", "potato", "carrot", "radish", "beetroot"]
     SATTVIC_EXCLUDED = ["onion", "garlic", "egg", "meat", "fish", "chicken"]
@@ -58,46 +61,36 @@ def filter_foods_by_preference(foods: List[FoodItem], diet_pref: str, region: st
     for food in foods:
         food_name_lower = food.food_name.lower()
 
-        # Vegetarian — no meat or fish
         if diet_pref == "veg" and food.category == "non-veg":
             continue
 
-        # Eggetarian — veg + eggs only
         if diet_pref == "eggetarian":
             if food.category == "non-veg" and "egg" not in food_name_lower:
                 continue
 
-        # Pescatarian — veg + fish only
         if diet_pref == "pescatarian":
             if food.category == "non-veg":
                 if not any(word in food_name_lower for word in ["fish", "salmon", "tuna", "maach", "ilish", "chingri"]):
                     continue
 
-        # Jain — veg, no root vegetables or onion/garlic
         if diet_pref == "jain":
             if food.category == "non-veg":
                 continue
             if any(word in food_name_lower for word in JAIN_EXCLUDED):
                 continue
 
-        # Sattvic — pure veg, no onion/garlic/eggs
         if diet_pref == "sattvic":
             if food.category == "non-veg":
                 continue
             if any(word in food_name_lower for word in SATTVIC_EXCLUDED):
                 continue
 
-        # Vegan — no animal products
         if diet_pref == "vegan":
             if food.category == "non-veg":
                 continue
             if any(word in food_name_lower for word in ["egg", "milk", "yogurt", "curd", "paneer", "ghee", "honey", "doi"]):
                 continue
 
-        # Veg + Non-Veg and Non-Veg — everything allowed
-        # No filtering needed
-
-        # Region filter
         if region != "global" and food.region not in ["global", region]:
             continue
 
@@ -116,50 +109,28 @@ def apply_health_constraints(foods: List[FoodItem], health_conditions: List[str]
 
     filtered = []
     for food in foods:
-        # Diabetes — avoid high sugar foods
         if "diabetes" in health_conditions and food.food_name in HIGH_SUGAR:
             continue
-
-        # Hypertension — avoid high sodium foods
         if "hypertension" in health_conditions and food.food_name in HIGH_SODIUM:
             continue
-
-        # Heart disease — avoid high fat foods
         if "heart disease" in health_conditions and food.food_name in HIGH_FAT:
             continue
-
-        # High cholesterol — avoid cholesterol rich foods
         if "cholesterol" in health_conditions and food.food_name in HIGH_CHOLESTEROL:
             continue
-
-        # Kidney disease — avoid high protein foods
         if "kidney disease" in health_conditions and food.protein > 20:
             continue
-
-        # Uric acid / gout — avoid high purine foods
         if "uric acid / gout" in health_conditions and food.food_name in HIGH_PURINE:
             continue
-
-        # IBS — avoid high fiber foods
         if "ibs" in health_conditions and food.food_name in HIGH_FIBER:
             continue
-
-        # Celiac disease — avoid gluten foods
         if "celiac disease" in health_conditions and food.food_name in GLUTEN_FOODS:
             continue
-
-        # Lactose intolerance — avoid dairy foods
         if "lactose intolerance" in health_conditions and food.food_name in DAIRY_FOODS:
             continue
-
-        # Obesity — avoid high calorie foods
         if "obesity" in health_conditions and food.calories > 350:
             continue
-
-        # Fatty liver — avoid high fat foods
         if "fatty liver" in health_conditions and food.fat > 15:
             continue
-
         filtered.append(food)
     return filtered
 
@@ -191,15 +162,18 @@ def select_meals_for_slot(foods: List[FoodItem], meal_type: str,
 def generate_explanation(profile: UserProfile, bmi: float, goal: str,
                           target_calories: float, ml_goal: str) -> str:
     bmi_cat = get_bmi_category(bmi)
+    activity = get_enum_value(profile.activity_level).replace('_', ' ')
+    goal_str = goal.replace('_', ' ') if isinstance(goal, str) else get_enum_value(goal).replace('_', ' ')
+    region = get_enum_value(profile.region)
+
     explanation = (
         f"Based on your profile — {profile.age} years old, {bmi_cat} (BMI: {bmi}), "
-        f"{profile.activity_level.replace('_', ' ')} lifestyle — "
-        f"your daily calorie target is set at {target_calories:.0f} kcal for {goal.replace('_', ' ')}. "
+        f"{activity} lifestyle — "
+        f"your daily calorie target is set at {target_calories:.0f} kcal for {goal_str}. "
     )
     if ml_goal != goal:
-        explanation += (
-            f"Our ML model also suggests '{ml_goal.replace('_', ' ')}' based on your metabolic profile. "
-        )
+        ml_goal_str = ml_goal.replace('_', ' ') if isinstance(ml_goal, str) else get_enum_value(ml_goal).replace('_', ' ')
+        explanation += f"Our ML model also suggests '{ml_goal_str}' based on your metabolic profile. "
     if "diabetes" in profile.health_conditions:
         explanation += "High-sugar foods have been excluded due to diabetes. "
     if "hypertension" in profile.health_conditions:
@@ -212,27 +186,31 @@ def generate_explanation(profile: UserProfile, bmi: float, goal: str,
         explanation += "Gluten-containing foods have been excluded due to celiac disease. "
     if "lactose intolerance" in profile.health_conditions:
         explanation += "Dairy foods have been excluded due to lactose intolerance. "
-    if profile.region != "global":
-        explanation += f"Meals are customized with {profile.region} regional foods for cultural familiarity. "
+    if region != "global":
+        explanation += f"Meals are customized with {region} regional foods for cultural familiarity. "
     return explanation
 
 def get_recommendations(profile: UserProfile, db: Session) -> Dict:
     bmi = compute_bmi(profile.weight_kg, profile.height_cm)
     bmr = compute_bmr(profile.weight_kg, profile.height_cm, profile.age, profile.gender)
-    tdee = bmr * ACTIVITY_MULTIPLIER.get(profile.activity_level, 1.55)
-    adjustment = GOAL_CALORIE_ADJUSTMENT.get(profile.goal, 0)
+    tdee = bmr * ACTIVITY_MULTIPLIER.get(get_enum_value(profile.activity_level), 1.55)
+    adjustment = GOAL_CALORIE_ADJUSTMENT.get(get_enum_value(profile.goal), 0)
     target_calories = tdee + adjustment
 
     ml_goal = predict_goal(
         age=profile.age,
-        gender=profile.gender,
+        gender=get_enum_value(profile.gender),
         bmi=bmi,
-        activity_level=profile.activity_level,
+        activity_level=get_enum_value(profile.activity_level),
         health_condition=profile.health_conditions[0] if profile.health_conditions else "none"
     )
 
     all_foods = db.query(FoodItem).all()
-    filtered = filter_foods_by_preference(all_foods, profile.diet_preference, profile.region)
+    filtered = filter_foods_by_preference(
+        all_foods,
+        get_enum_value(profile.diet_preference),
+        get_enum_value(profile.region)
+    )
     filtered = apply_health_constraints(filtered, profile.health_conditions)
 
     breakfast = select_meals_for_slot(
@@ -259,7 +237,7 @@ def get_recommendations(profile: UserProfile, db: Session) -> Dict:
     total_fat = sum(m.fat for m in all_meals)
 
     explanation = generate_explanation(
-        profile, bmi, profile.goal, target_calories, ml_goal
+        profile, bmi, get_enum_value(profile.goal), target_calories, ml_goal
     )
 
     return {
