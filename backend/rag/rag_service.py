@@ -70,7 +70,7 @@ def chat_with_rag(message: str, conversation_history: List[dict] = []) -> Tuple[
 
         llm = ChatGroq(
             api_key=settings.groq_api_key,
-            model_name="llama3-8b-8192",
+            model_name="llama-3.3-70b-versatile",
             temperature=0.7,
             max_tokens=600
         )
@@ -108,7 +108,7 @@ def fallback_chat(message: str) -> str:
     try:
         llm = ChatGroq(
             api_key=settings.groq_api_key,
-            model_name="llama3-8b-8192",
+            model_name="llama-3.3-70b-versatile",
             temperature=0.7,
             max_tokens=400
         )
